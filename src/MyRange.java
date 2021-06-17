@@ -23,8 +23,8 @@ public class MyRange {
             for (int i = min; i <= max; i++) {
                 if(output != "") {
                     output = output + ", ";
-                    output += i;
                 }
+                output += i;
             }
             System.out.print(output);
         }
