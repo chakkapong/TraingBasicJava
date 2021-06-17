@@ -1,12 +1,12 @@
 public class MyRange {
     public static void main(String[] args) {
 
-        String text = "[1,5]";//args[0].split(",");
+        //String text = "[1,5]";
 
-        //if(args.length ==1){
+        if(args.length ==1){
             int max = 0;
             int min = 0;
-            String[] argSp = text.split(",");
+            String[] argSp = args[0].split(",");
             if(argSp[0].startsWith("(")){
                 min = min +1;
             }
@@ -23,6 +23,6 @@ public class MyRange {
             for (int i = min; i <= max; i++) {
                 System.out.print(i + " ");
             }
-        //}
+        }
     }
 }
