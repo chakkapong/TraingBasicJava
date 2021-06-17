@@ -2,7 +2,7 @@ public class MyRange {
     public static void main(String[] args) {
 
         //String text = "[1,5]";
-
+        String output = "";
         if(args.length ==1){
             int max = 0;
             int min = 0;
@@ -21,8 +21,12 @@ public class MyRange {
                 max = Integer.parseInt(argSp[1].substring(0,1));
             }
             for (int i = min; i <= max; i++) {
-                System.out.print(i + " ");
+                if(output != "") {
+                    output = output + ", ";
+                    output += i;
+                }
             }
+            System.out.print(output);
         }
     }
 }
