@@ -1,12 +1,13 @@
 package com.example.hellospring.workshop01;
 
-        import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Test;
 
-        import java.util.Random;
+import java.util.Random;
 
-        import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.*;
 
-class Random7 extends Random {
+class Random7 implements IRandom {
+
     @Override
     public int nextInt(int bound) {
         return 7;
