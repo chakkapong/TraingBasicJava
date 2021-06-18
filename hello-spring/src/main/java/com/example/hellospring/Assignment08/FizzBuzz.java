@@ -8,17 +8,17 @@ public class FizzBuzz implements IFizzBuzz {
             String result = "";
             int check = input;
 
-                if(check % 3 == 0 && check % 5 == 0){
-                    result = "FizzBuzz";
-                }else if(check % 3 == 0){
-                    result = "Fizz";
-                }
-                else if(check % 5 == 0){
-                    result = "Buzz";
-                }
-                else{
-                    result = String.valueOf(input);;
-                }
+            if(check % 3 == 0 && check % 5 == 0){
+                result = "FizzBuzz";
+            }else if(check % 3 == 0){
+                result = "Fizz";
+            }
+            else if(check % 5 == 0){
+                result = "Buzz";
+            }
+            else{
+                result = String.valueOf(input);;
+            }
             return  result;
         }
     }
