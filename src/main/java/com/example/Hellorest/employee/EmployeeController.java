@@ -4,6 +4,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import static java.lang.Integer.parseInt;
+
 @RestController
 public class EmployeeController {
 
@@ -12,11 +14,12 @@ public class EmployeeController {
         //validate id => Number Only
         int _id = 0;
        try {
-           _id = Integer.parseInt(id);
+           _id = parseInt(id);
        }
-       catch(Exception e){
+       catch(NumberFormatException e){
+           return new EmployeeResponse(_id,"","");
+       }
 
-       }
-        return new EmployeeResponse(_id,"Chakkapong","Chaowannasiri");
+       return new EmployeeResponse(_id,"Chakkapong","Chaowannasiri");
     }
 }
