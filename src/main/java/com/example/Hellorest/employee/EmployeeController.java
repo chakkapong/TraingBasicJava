@@ -1,25 +1,64 @@
 package com.example.Hellorest.employee;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
 
-import static java.lang.Integer.parseInt;
+import org.springframework.beans.factory.annotation.Autowired; 
+import org.springframework.context.annotation.Bean; 
+import org.springframework.validation.annotation.Validated; 
+import org.springframework.web.bind.annotation.*; 
 
-@RestController
-public class EmployeeController {
 
-    @GetMapping("/employee/{id}")//ประกาศ Get
-    public EmployeeResponse getEmployeeByID(@PathVariable String id){
-        //validate id => Number Only
-        int _id = 0;
-       try {
-           _id = parseInt(id);
-       }
-       catch(NumberFormatException e){
-           return new EmployeeResponse(_id,"","");
-       }
+import javax.persistence.Id; 
+import java.util.Random; 
+ 
 
-       return new EmployeeResponse(_id,"Chakkapong","Chaowannasiri");
-    }
-}
+ @RestController 
+ public class EmployeeController { 
+ 
+
+     @Bean 
+     public Random createNewRandom() { 
+         return new Random(); 
+     } 
+ 
+
+     @Autowired 
+     private Random random; 
+ 
+
+     @GetMapping("/employee/{id}") 
+     public EmployeeResponse getEmployeeByID(@PathVariable String id) {
+         // Validate id => Number only 
+         int _id = 0; 
+         try { 
+             _id = Integer.parseInt(id); 
+         }catch (NumberFormatException e) { 
+
+         } 
+         // Workshop 
+         int number = random.nextInt(10); 
+         return new EmployeeResponse(_id, "Somkiat" + number, "Pui"); 
+     } 
+ 
+
+     // employee?id2==? 
+     @GetMapping("/employee") 
+     public EmployeeResponse getEmployeeByID2(@RequestParam String id) {
+         // Validate id => Number only 
+         int _id = 0; 
+         try { 
+             _id = Integer.parseInt(id); 
+         }catch (NumberFormatException e) { 
+
+         } 
+         return new EmployeeResponse(_id, "Somkiat", "Pui"); 
+     } 
+ 
+
+     @PostMapping("/employee") 
+     public EmployeeResponse createNewEmployee(@RequestBody EmployeeRequest request) { 
+         // Validation 
+         return new EmployeeResponse(999, request.getFname(), request.getLname()); 
+     } 
+ 
+
+ } 

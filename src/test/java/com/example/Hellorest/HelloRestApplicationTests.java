@@ -1,13 +1,17 @@
 package com.example.Hellorest;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
-class HelloRestApplicationTests {
+import org.junit.jupiter.api.Test; 
+import org.springframework.boot.test.context.SpringBootTest; 
 
-	@Test
-	void contextLoads() {
-	}
 
-}
+@SpringBootTest 
+class HelloRestApplicationTests { 
+
+
+	@Test 
+ 	void contextLoads() { 
+ 	} 
+ 
+
+ } 
